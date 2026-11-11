@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Inventory xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Stores>
+    <Store>
+      <StoreId>5001</StoreId>
+      <Stock>
+        <Product>
+          <ProductId>4</ProductId>
+          <Name>Bandage</Name>
+          <Quantity>1</Quantity>
+        </Product>
+      </Stock>
+    </Store>
+  </Stores>
+</Inventory>

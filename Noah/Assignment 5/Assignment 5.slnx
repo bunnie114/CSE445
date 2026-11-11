@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="InventoryService/InventoryService.csproj" Id="e04586fb-1fa9-4d09-8a1a-ae866ec756f2" />
+  <Project Path="Landing/Landing.csproj" Id="6d5d3b89-c035-4c41-a3d7-314bf8730bb2" />
+  <Project Path="TryIt/TryIt.csproj" Id="4f61c436-8fde-44d2-8517-c9e4d699dd5b">
+    <BuildDependency Project="InventoryService/InventoryService.csproj" />
+  </Project>
+</Solution>

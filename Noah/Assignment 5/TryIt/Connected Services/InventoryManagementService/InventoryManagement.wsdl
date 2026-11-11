@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="getInventory">
+        <s:complexType />
+      </s:element>
+      <s:element name="getInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInventoryResult" type="tns:Inventory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Inventory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Stores" type="tns:ArrayOfStore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Store" nillable="true" type="tns:Store" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Store">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StoreId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stock" type="tns:ArrayOfProduct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProduct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Product">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getStore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStoreResult" type="tns:Store" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getProductResult" type="tns:Product" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="lowStock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="threshold" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="lowStockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lowStockResult" type="tns:ArrayOfProduct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addStore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addStoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addStoreResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="productQuantity" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restockProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="restockProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="restockProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sellProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="sellProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="balanceProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="balanceProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="balanceProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeStore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeStoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="removeStoreResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="removeProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resetInventory">
+        <s:complexType />
+      </s:element>
+      <s:element name="resetInventoryResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="storeExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="storeExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="storeExistsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="productExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="storeId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="productExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productExistsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:getInventory" />
+  </wsdl:message>
+  <wsdl:message name="getInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:getInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getStoreSoapIn">
+    <wsdl:part name="parameters" element="tns:getStore" />
+  </wsdl:message>
+  <wsdl:message name="getStoreSoapOut">
+    <wsdl:part name="parameters" element="tns:getStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="getProductSoapIn">
+    <wsdl:part name="parameters" element="tns:getProduct" />
+  </wsdl:message>
+  <wsdl:message name="getProductSoapOut">
+    <wsdl:part name="parameters" element="tns:getProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="lowStockSoapIn">
+    <wsdl:part name="parameters" element="tns:lowStock" />
+  </wsdl:message>
+  <wsdl:message name="lowStockSoapOut">
+    <wsdl:part name="parameters" element="tns:lowStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="addStoreSoapIn">
+    <wsdl:part name="parameters" element="tns:addStore" />
+  </wsdl:message>
+  <wsdl:message name="addStoreSoapOut">
+    <wsdl:part name="parameters" element="tns:addStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="addProductSoapIn">
+    <wsdl:part name="parameters" element="tns:addProduct" />
+  </wsdl:message>
+  <wsdl:message name="addProductSoapOut">
+    <wsdl:part name="parameters" element="tns:addProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="restockProductSoapIn">
+    <wsdl:part name="parameters" element="tns:restockProduct" />
+  </wsdl:message>
+  <wsdl:message name="restockProductSoapOut">
+    <wsdl:part name="parameters" element="tns:restockProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="sellProductSoapIn">
+    <wsdl:part name="parameters" element="tns:sellProduct" />
+  </wsdl:message>
+  <wsdl:message name="sellProductSoapOut">
+    <wsdl:part name="parameters" element="tns:sellProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="balanceProductSoapIn">
+    <wsdl:part name="parameters" element="tns:balanceProduct" />
+  </wsdl:message>
+  <wsdl:message name="balanceProductSoapOut">
+    <wsdl:part name="parameters" element="tns:balanceProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeStoreSoapIn">
+    <wsdl:part name="parameters" element="tns:removeStore" />
+  </wsdl:message>
+  <wsdl:message name="removeStoreSoapOut">
+    <wsdl:part name="parameters" element="tns:removeStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeProductSoapIn">
+    <wsdl:part name="parameters" element="tns:removeProduct" />
+  </wsdl:message>
+  <wsdl:message name="removeProductSoapOut">
+    <wsdl:part name="parameters" element="tns:removeProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="resetInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:resetInventory" />
+  </wsdl:message>
+  <wsdl:message name="resetInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:resetInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="storeExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:storeExists" />
+  </wsdl:message>
+  <wsdl:message name="storeExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:storeExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="productExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:productExists" />
+  </wsdl:message>
+  <wsdl:message name="productExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:productExistsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InventoryManagementSoap">
+    <wsdl:operation name="getInventory">
+      <wsdl:input message="tns:getInventorySoapIn" />
+      <wsdl:output message="tns:getInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getStore">
+      <wsdl:input message="tns:getStoreSoapIn" />
+      <wsdl:output message="tns:getStoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <wsdl:input message="tns:getProductSoapIn" />
+      <wsdl:output message="tns:getProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="lowStock">
+      <wsdl:input message="tns:lowStockSoapIn" />
+      <wsdl:output message="tns:lowStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addStore">
+      <wsdl:input message="tns:addStoreSoapIn" />
+      <wsdl:output message="tns:addStoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addProduct">
+      <wsdl:input message="tns:addProductSoapIn" />
+      <wsdl:output message="tns:addProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="restockProduct">
+      <wsdl:input message="tns:restockProductSoapIn" />
+      <wsdl:output message="tns:restockProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="sellProduct">
+      <wsdl:input message="tns:sellProductSoapIn" />
+      <wsdl:output message="tns:sellProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="balanceProduct">
+      <wsdl:input message="tns:balanceProductSoapIn" />
+      <wsdl:output message="tns:balanceProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="removeStore">
+      <wsdl:input message="tns:removeStoreSoapIn" />
+      <wsdl:output message="tns:removeStoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="removeProduct">
+      <wsdl:input message="tns:removeProductSoapIn" />
+      <wsdl:output message="tns:removeProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="resetInventory">
+      <wsdl:input message="tns:resetInventorySoapIn" />
+      <wsdl:output message="tns:resetInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="storeExists">
+      <wsdl:input message="tns:storeExistsSoapIn" />
+      <wsdl:output message="tns:storeExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="productExists">
+      <wsdl:input message="tns:productExistsSoapIn" />
+      <wsdl:output message="tns:productExistsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InventoryManagementSoap" type="tns:InventoryManagementSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getInventory">
+      <soap:operation soapAction="http://tempuri.org/getInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStore">
+      <soap:operation soapAction="http://tempuri.org/getStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <soap:operation soapAction="http://tempuri.org/getProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lowStock">
+      <soap:operation soapAction="http://tempuri.org/lowStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addStore">
+      <soap:operation soapAction="http://tempuri.org/addStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addProduct">
+      <soap:operation soapAction="http://tempuri.org/addProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restockProduct">
+      <soap:operation soapAction="http://tempuri.org/restockProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sellProduct">
+      <soap:operation soapAction="http://tempuri.org/sellProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="balanceProduct">
+      <soap:operation soapAction="http://tempuri.org/balanceProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeStore">
+      <soap:operation soapAction="http://tempuri.org/removeStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeProduct">
+      <soap:operation soapAction="http://tempuri.org/removeProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetInventory">
+      <soap:operation soapAction="http://tempuri.org/resetInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="storeExists">
+      <soap:operation soapAction="http://tempuri.org/storeExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="productExists">
+      <soap:operation soapAction="http://tempuri.org/productExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InventoryManagementSoap12" type="tns:InventoryManagementSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getInventory">
+      <soap12:operation soapAction="http://tempuri.org/getInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStore">
+      <soap12:operation soapAction="http://tempuri.org/getStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <soap12:operation soapAction="http://tempuri.org/getProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lowStock">
+      <soap12:operation soapAction="http://tempuri.org/lowStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addStore">
+      <soap12:operation soapAction="http://tempuri.org/addStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addProduct">
+      <soap12:operation soapAction="http://tempuri.org/addProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="restockProduct">
+      <soap12:operation soapAction="http://tempuri.org/restockProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sellProduct">
+      <soap12:operation soapAction="http://tempuri.org/sellProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="balanceProduct">
+      <soap12:operation soapAction="http://tempuri.org/balanceProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeStore">
+      <soap12:operation soapAction="http://tempuri.org/removeStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeProduct">
+      <soap12:operation soapAction="http://tempuri.org/removeProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetInventory">
+      <soap12:operation soapAction="http://tempuri.org/resetInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="storeExists">
+      <soap12:operation soapAction="http://tempuri.org/storeExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="productExists">
+      <soap12:operation soapAction="http://tempuri.org/productExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InventoryManagement">
+    <wsdl:port name="InventoryManagementSoap" binding="tns:InventoryManagementSoap">
+      <soap:address location="https://localhost:44359/InventoryManagement.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InventoryManagementSoap12" binding="tns:InventoryManagementSoap12">
+      <soap12:address location="https://localhost:44359/InventoryManagement.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
