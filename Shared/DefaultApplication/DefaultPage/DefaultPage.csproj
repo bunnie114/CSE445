@@ -75,7 +75,7 @@
     <Content Include="CookieTryIt.aspx" />
     <Content Include="Global.asax" />
     <Content Include="GlobalTryIt.aspx" />
-    <Content Include="NotesServices.ashx" />
+    <Content Include="NotesService.ashx" />
     <Content Include="NotesTryIt.aspx" />
     <Content Include="TinaTryIt.aspx" />
   </ItemGroup>
