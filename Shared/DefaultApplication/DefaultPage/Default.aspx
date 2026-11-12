@@ -33,6 +33,12 @@
             padding: 25px;
         }
 
+        .text{
+            background-color: #dadee4;
+            padding: 4px;
+            border-radius: 2px;
+        }
+
         .title{
             margin-bottom: 0px;
         }
@@ -133,11 +139,19 @@
 
         <div class="section">
             <h1 class="title">TA Test Guide and Credentials</h1>
+            <h3>This is a placeholder for now. None of this will work in assignment 5.</h3>
             <hr />
             <div class="inner-section">
                 <h3>Member Account:</h3>
+                <p>Username: <span class="text">Test</span> &nbsp;&nbsp;&nbsp; Password: <span class="text">Test</span></p>
+                <p></p>
+                <br />
                 <h3>Staff Account:</h3>
+                <p>Username: <span class="text">Test</span> &nbsp;&nbsp;&nbsp; Password: <span class="text">Test</span></p>
+                <p></p>
+                <br />
                 <h3>Member-Registration Test:</h3>
+                <br />
                 <h3>Access Control Test:</h3>
             </div>
 

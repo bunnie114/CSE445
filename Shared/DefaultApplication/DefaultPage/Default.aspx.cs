@@ -16,22 +16,22 @@ namespace DefaultPage
 
         protected void MemberRegisterBtn_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Register.aspx");
         }
 
         protected void MemberLoginBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("~/Login.aspx");
         }
 
         protected void StaffLoginBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Login.aspx");
+            Response.Redirect("~/Login.aspx");
         }
 
         protected void aryanBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("");
+            //Response.Redirect("");
         }
 
         protected void tinaBtn_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace DefaultPage
 
         protected void noahBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("");
+            //Response.Redirect("");
         }
     }
 }

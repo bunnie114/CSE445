@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="DefaultBtn" runat="server" Text="Back to Default" OnClick="DefaultBtn_Click" />
         </div>
     </form>
 </body>
