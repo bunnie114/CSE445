@@ -177,23 +177,23 @@
                     <td>Test</td>
                     <td>Test</td>
                 </tr>
+                <tr class="even-row row">
+                    <td>Christina</td>
+                    <td class="auto-style1">Global.asax</td>
+                    <td>Handles application-wide events. The Application_Start event initializes an application-wide visit counter when the pharmacy inventory application starts. Input: Application startup event. Output: Initializes application state</td>
+                    <td>ASP.NET Global.asax file and C# event handlers. </td>
+                </tr>
                 <tr class="odd-row row">
-                    <td>Tina</td>
-                    <td class="auto-style1">Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
+                    <td>Christina</td>
+                    <td class="auto-style1">Cookie</td>
+                    <td>Stores the user's preferred or last-selected pharmacy store. Input: Store ID and store name. Output: Retrieves the saved store preference when the user returns to the application.</td>
+                    <td>ASP.NET HttpCookie in C#. </td>
                 </tr>
                 <tr class="even-row row">
-                    <td>Tina</td>
-                    <td class="auto-style1">Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
-                </tr>
-                <tr class="odd-row row">
-                    <td>Tina</td>
-                    <td class="auto-style1">Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
+                    <td>Christina</td>
+                    <td class="auto-style1">RESTful Web Service (Notes)</td>
+                    <td>Allows pharmacy staff to save and retrieve notes about stores or products. SaveNotes(title, text) saves a note. RetrieveNotes(title) retrieves a previously saved note. Input: Note title and text. Output: Saved or retrieved note information.</td>
+                    <td>Notes RESTful service from Assignment 3. </td>
                 </tr>
                 <tr class="even-row row">
                     <td>Noah</td>
