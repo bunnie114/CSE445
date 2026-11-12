@@ -71,6 +71,13 @@
     <Content Include="Login.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Web.config" />
+    <Content Include="App_Data\notes.xml" />
+    <Content Include="CookieTryIt.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="GlobalTryIt.aspx" />
+    <Content Include="NotesService.ashx" />
+    <Content Include="NotesTryIt.aspx" />
+    <Content Include="TinaTryIt.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Default.aspx.cs">
@@ -95,6 +102,8 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Components\NotesService.cs" /></Compile>
+    <Compile Include="Components\StoreCookie.cs" /></Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
