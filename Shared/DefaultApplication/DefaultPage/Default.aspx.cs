@@ -41,7 +41,7 @@ namespace DefaultPage
 
         protected void noahBtn_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("");
+            Response.Redirect("../Page9/TryItPage.aspx");
         }
     }
 }

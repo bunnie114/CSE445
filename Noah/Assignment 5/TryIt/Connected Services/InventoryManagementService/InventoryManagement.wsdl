@@ -629,10 +629,10 @@
   </wsdl:binding>
   <wsdl:service name="InventoryManagement">
     <wsdl:port name="InventoryManagementSoap" binding="tns:InventoryManagementSoap">
-      <soap:address location="https://localhost:44359/InventoryManagement.asmx" />
+      <soap:address location="http://webstrarportal-env.eba-uzcvm8rb.us-west-2.elasticbeanstalk.com/sites/website59/Page10/InventoryManagement.asmx" />
     </wsdl:port>
     <wsdl:port name="InventoryManagementSoap12" binding="tns:InventoryManagementSoap12">
-      <soap12:address location="https://localhost:44359/InventoryManagement.asmx" />
+      <soap12:address location="http://webstrarportal-env.eba-uzcvm8rb.us-west-2.elasticbeanstalk.com/sites/website59/Page10/InventoryManagement.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
