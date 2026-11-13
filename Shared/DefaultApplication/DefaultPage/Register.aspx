@@ -7,10 +7,6 @@
 <head runat="server">
     <title>Register Page</title>
     <style type="text/css">
-        *{
-            box-sizing: border-box;
-        }
-
         body{
             background-color: #f6f6f6;
             font-family: Arial, Helvetica, sans-serif;
@@ -79,7 +75,7 @@
             margin: 10px 5px 5px 5px;
             font-size: 14px;
             font-weight: normal;
-            width: 100%;
+            width: 80%;
             background-color: #4a9eff;
         }
 
@@ -91,7 +87,7 @@
         }
 
         .input-section2{
-            width: 100%;
+            width: 80%;
         }
 
         .label{
@@ -110,6 +106,7 @@
             padding: 5px;
             width: 100%;
             font-size: 20px;
+            box-sizing: border-box;
         }
 
         .input-box2{

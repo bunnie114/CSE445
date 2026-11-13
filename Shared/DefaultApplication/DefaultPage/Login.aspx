@@ -18,7 +18,7 @@
 
         .section{
             width: 35%;
-            min-width: 400px;
+            min-width: 450px;
             margin: 3% auto;
             padding: 25px 25px 30px 25px;
             background-color: #ffffff;
