@@ -34,6 +34,13 @@ namespace TryIt
             // Get user input
             string storeId = AddStoreInput.Text;
 
+            // If input is empty, inform user and return
+            if(string.IsNullOrWhiteSpace(storeId))
+            {
+                AddStoreResult.Text = "Store ID cannot be empty.";
+                return;
+            }
+
             // Call the method through the proxy and display result
             AddStoreResult.Text = prxy.addStore(storeId);
         }
@@ -45,11 +52,27 @@ namespace TryIt
             string productId = AddProductInput2.Text;
             string productName = AddProductInput3.Text;
             int quantity;
-            // Make sure they entered a number
-            if (!int.TryParse(AddProductInput4.Text, out quantity))
+
+            // If any input is empty, inform user and return
+            if(string.IsNullOrWhiteSpace(storeId) || string.IsNullOrWhiteSpace(productId) || string.IsNullOrWhiteSpace(productName) )
             {
-                AddProductResult.Text = "Input must be an integer.";
+                AddProductResult.Text = "Store ID, Product ID, and Product Name cannot be empty.";
                 return;
+            }
+
+            // Default to 0 quantity if the input is empty
+            if(AddProductInput4.Text.Trim() == "")
+            {
+                quantity = 0;
+            }
+            else
+            {
+                // Make sure they entered a number
+                if (!int.TryParse(AddProductInput4.Text, out quantity))
+                {
+                    AddProductResult.Text = "Input must be an integer.";
+                    return;
+                }
             }
 
             // Call the method through the proxy and display result
@@ -61,6 +84,13 @@ namespace TryIt
             // Get user input
             string storeId = StoreExistsInput.Text;
 
+            // If input is empty, inform user and return
+            if (string.IsNullOrWhiteSpace(storeId))
+            {
+                StoreExistsResult.Text = "Store ID cannot be empty.";
+                return;
+            }
+
             // Call the method through the proxy and display result
             StoreExistsResult.Text = prxy.storeExists(storeId).ToString();
         }
@@ -69,6 +99,13 @@ namespace TryIt
         {
             // Get user input
             string storeId = GetStoreInput.Text;
+
+            // If input is empty, inform user and return
+            if (string.IsNullOrWhiteSpace(storeId))
+            {
+                GetStoreResult.Text = "Store ID cannot be empty.";
+                return;
+            }
 
             // Call the method through the proxy
             InventoryManagementService.Store store = prxy.getStore(storeId);
@@ -85,6 +122,13 @@ namespace TryIt
             string storeId = ProductExistsInput1.Text;
             string productName = ProductExistsInput2.Text;
 
+            // If any input is empty, inform user and return
+            if (string.IsNullOrWhiteSpace(storeId) || string.IsNullOrWhiteSpace(productName))
+            {
+                ProductExistsResult.Text = "Store ID and Product Name cannot be empty.";
+                return;
+            }
+
             // Call the method through the proxy and display result
             ProductExistsResult.Text = prxy.productExists(storeId, productName).ToString();
         }
@@ -94,6 +138,13 @@ namespace TryIt
             // Get user input
             string storeId = GetProductInput1.Text;
             string productName = GetProductInput2.Text;
+
+            // If any input is empty, inform user and return
+            if (string.IsNullOrWhiteSpace(storeId) || string.IsNullOrWhiteSpace(productName))
+            {
+                GetProductResult.Text = "Store ID and Product Name cannot be empty.";
+                return;
+            }
 
             // Call the method through the proxy
             InventoryManagementService.Product product = prxy.getProduct(storeId, productName);
@@ -109,6 +160,14 @@ namespace TryIt
             // Get user input
             string storeId = LowStockInput1.Text;
             int threshold;
+
+            // If any input is empty, inform user and return
+            if (string.IsNullOrWhiteSpace(storeId) || string.IsNullOrWhiteSpace(LowStockInput2.Text))
+            {
+                LowStockResult.Text = "Store ID and Threshold cannot be empty.";
+                return;
+            }
+
             // Make sure they entered a number
             if (!int.TryParse(LowStockInput2.Text, out threshold))
             {
@@ -131,6 +190,14 @@ namespace TryIt
             string storeId = RestockProductInput1.Text;
             string productName = RestockProductInput2.Text;
             int amount;
+
+            // If any input is empty, inform user and return
+            if (string.IsNullOrWhiteSpace(storeId) || string.IsNullOrWhiteSpace(productName) || string.IsNullOrWhiteSpace(RestockProductInput3.Text))
+            {
+                RestockProductResult.Text = "Store ID, Product Name, and Amount cannot be empty.";
+                return;
+            }
+
             // Make sure they entered a number
             if (!int.TryParse(RestockProductInput3.Text, out amount))
             {
@@ -148,6 +215,14 @@ namespace TryIt
             string storeId = SellProductInput1.Text;
             string productName = SellProductInput2.Text;
             int amount;
+
+            // If any input is empty, inform user and return
+            if (string.IsNullOrWhiteSpace(storeId) || string.IsNullOrWhiteSpace(productName) || string.IsNullOrWhiteSpace(SellProductInput3.Text))
+            {
+                SellProductResult.Text = "Store ID, Product Name, and Amount cannot be empty.";
+                return;
+            }
+
             // Make sure they entered a number
             if (!int.TryParse(SellProductInput3.Text, out amount))
             {
@@ -164,6 +239,13 @@ namespace TryIt
             // Get user input
             string productName = BalanceProductInput.Text;
 
+            // If input is empty, inform user and return
+            if (string.IsNullOrWhiteSpace(productName))
+            {
+                BalanceProductResult.Text = "Product Name cannot be empty.";
+                return;
+            }
+
             // Call the method through the proxy and display result
             BalanceProductResult.Text = prxy.balanceProduct(productName);
         }
@@ -172,6 +254,13 @@ namespace TryIt
         {
             // Get user input
             string storeId = RemoveStoreInput.Text;
+
+            // If input is empty, inform user and return
+            if (string.IsNullOrWhiteSpace(storeId))
+            {
+                RemoveStoreResult.Text = "Store ID cannot be empty.";
+                return;
+            }
 
             // Call the method through the proxy and display result
             RemoveStoreResult.Text = prxy.removeStore(storeId);
@@ -182,6 +271,13 @@ namespace TryIt
             // Get user input
             string storeId = RemoveProductInput1.Text;
             string productName = RemoveProductInput2.Text;
+
+            // If any input is empty, inform user and return
+            if (string.IsNullOrWhiteSpace(storeId) || string.IsNullOrWhiteSpace(productName))
+            {
+                RemoveProductResult.Text = "Store ID and Product Name cannot be empty.";
+                return;
+            }
 
             // Call the method through the proxy and display result
             RemoveProductResult.Text = prxy.removeProduct(storeId, productName);
