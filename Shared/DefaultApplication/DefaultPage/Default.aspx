@@ -117,7 +117,7 @@
         <div class="section">
             <h1 class="title">About This Application</h1>
             <hr />
-            <p>This is a service-oriented inventory management web application built with ASP.NET Web Forms (.NET framework). Members can login to view product information of a pharmacy by entering a website url and using the filter feature to filter out unnecessary words. Staff can login to manage the inventory of specific pharmacy stores as well as making notes for specific locations and that locations products</p>
+            <p>This is a service-oriented inventory management web application built with ASP.NET Web Forms (.NET framework). Members can login to download web-page content and filter out unecessary words from the results. Staff can login to manage the inventory of specific pharmacy stores as well as making notes for specific locations and that locations products</p>
             <h2>Navigate To:</h2>
             <div>
                 <asp:Button ID="MemberRegisterBtn" class="member-btn button" runat="server" Text="Register as Member" OnClick="MemberRegisterBtn_Click" />
@@ -130,6 +130,7 @@
             <h1 class="title">TryIt Pages</h1>
             <hr />
             <p>Link to each member's TryIt page.</p>
+            <p><strong>The links use the relative pathing of the Webstrar server, so they don't work locally, but they do work on the deployed default page.</strong></p>
             <div>
                 <asp:Button ID="aryanBtn" class="tryit-btn button" runat="server" Text="Aryan's TryIt" OnClick="aryanBtn_Click" />
                 <asp:Button ID="tinaBtn" class="tryit-btn button" runat="server" Text="Tina's TryIt" OnClick="tinaBtn_Click" />
@@ -139,16 +140,16 @@
 
         <div class="section">
             <h1 class="title">TA Test Guide and Credentials</h1>
-            <h3>This is a placeholder for now. None of this will work in assignment 5.</h3>
+            <h3>This is a placeholder for now. None of the info in this section is used in assignment 5.</h3>
             <hr />
             <div class="inner-section">
                 <h3>Member Account:</h3>
                 <p>Username: <span class="text">Test</span> &nbsp;&nbsp;&nbsp; Password: <span class="text">Test</span></p>
-                <p></p>
+                <p>Test</p>
                 <br />
                 <h3>Staff Account:</h3>
                 <p>Username: <span class="text">Test</span> &nbsp;&nbsp;&nbsp; Password: <span class="text">Test</span></p>
-                <p></p>
+                <p>Test</p>
                 <br />
                 <h3>Member-Registration Test:</h3>
                 <br />
