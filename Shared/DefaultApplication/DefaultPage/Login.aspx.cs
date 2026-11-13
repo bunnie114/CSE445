@@ -18,5 +18,10 @@ namespace DefaultPage
         {
             Response.Redirect("~/Default.aspx");
         }
+
+        protected void LoginBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Default Page</title>
     <style type="text/css">
         body{
             background-color: #f6f6f6;
@@ -49,7 +49,6 @@
         }
 
         .button{
-            border-radius: 100px;
             padding: 10px 15px;
             border: none;
             border-radius: 5px !important;
@@ -120,9 +119,9 @@
             <p>This is a service-oriented inventory management web application built with ASP.NET Web Forms (.NET framework). Members can login to download web-page content and filter out unecessary words from the results. Staff can login to manage the inventory of specific pharmacy stores as well as making notes for specific locations and that locations products</p>
             <h2>Navigate To:</h2>
             <div>
-                <asp:Button ID="MemberRegisterBtn" class="member-btn button" runat="server" Text="Register as Member" OnClick="MemberRegisterBtn_Click" />
-                <asp:Button ID="MemberLoginBtn" class="member-btn button" runat="server" Text="Member Login" OnClick="MemberLoginBtn_Click" />
-                <asp:Button ID="StaffLoginBtn" class="staff-btn button" runat="server" Text="Staff Login" OnClick="StaffLoginBtn_Click" />
+                <asp:Button ID="MemberRegisterBtn" CssClass="member-btn button" runat="server" Text="Register as Member" OnClick="MemberRegisterBtn_Click" />
+                <asp:Button ID="MemberLoginBtn" CssClass="member-btn button" runat="server" Text="Member Login" OnClick="MemberLoginBtn_Click" />
+                <asp:Button ID="StaffLoginBtn" CssClass="staff-btn button" runat="server" Text="Staff Login" OnClick="StaffLoginBtn_Click" />
             </div>
         </div>
 
@@ -132,9 +131,9 @@
             <p>Link to each member's TryIt page.</p>
             <p><strong>The links use the relative pathing of the Webstrar server, so they don't work locally, but they do work on the deployed default page.</strong></p>
             <div>
-                <asp:Button ID="aryanBtn" class="tryit-btn button" runat="server" Text="Aryan's TryIt" OnClick="aryanBtn_Click" />
-                <asp:Button ID="tinaBtn" class="tryit-btn button" runat="server" Text="Tina's TryIt" OnClick="tinaBtn_Click" />
-                <asp:Button ID="noahBtn" class="tryit-btn button" runat="server" Text="Noah's TryIt" OnClick="noahBtn_Click" />
+                <asp:Button ID="aryanBtn" CssClass="tryit-btn button" runat="server" Text="Aryan's TryIt" OnClick="aryanBtn_Click" />
+                <asp:Button ID="tinaBtn" CssClass="tryit-btn button" runat="server" Text="Tina's TryIt" OnClick="tinaBtn_Click" />
+                <asp:Button ID="noahBtn" CssClass="tryit-btn button" runat="server" Text="Noah's TryIt" OnClick="noahBtn_Click" />
             </div>
         </div>
 
@@ -144,18 +143,17 @@
             <hr />
             <div class="inner-section">
                 <h3>Member Account:</h3>
-                <p>Username: <span class="text">Test</span> &nbsp;&nbsp;&nbsp; Password: <span class="text">Test</span></p>
+                <p>Username: <span class="text"></span> &nbsp;&nbsp;&nbsp; Password: <span class="text"></span></p>
                 <p>Test</p>
                 <br />
                 <h3>Staff Account:</h3>
-                <p>Username: <span class="text">Test</span> &nbsp;&nbsp;&nbsp; Password: <span class="text">Test</span></p>
+                <p>Username: <span class="text"></span> &nbsp;&nbsp;&nbsp; Password: <span class="text"></span></p>
                 <p>Test</p>
                 <br />
                 <h3>Member-Registration Test:</h3>
                 <br />
                 <h3>Access Control Test:</h3>
             </div>
-
         </div>
 
         <div class="section">

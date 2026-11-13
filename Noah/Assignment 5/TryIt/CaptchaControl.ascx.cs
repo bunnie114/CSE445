@@ -21,6 +21,15 @@ namespace TryIt
             }
         }
 
+        // Public method to check if the user input matches the generated captcha
+        public bool IsCaptchaValid()
+        {
+            String userInput = CaptchaInputTxt.Text; // Get user input
+
+            // Compare the user input with the generated captcha stored in the session
+            return userInput == Session["captcha"] as string;
+        }
+
         // Generates a random captcha code and displays it to the user
         protected void GenerateBtn_Click(object sender, EventArgs e)
         {
@@ -98,11 +107,9 @@ namespace TryIt
         // Checks the user input to see if it matches the generated captcha
         protected void CheckBtn_Click(object sender, EventArgs e)
         {
-            String userInput = CaptchaInputTxt.Text; // Get user input
-
             // Check to see if the user input matches the generated captcha stored in the session
             // Show a success alert on match
-            if(userInput == Session["captcha"] as String)
+            if(IsCaptchaValid())
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Captcha verification successful.');", true);
             }

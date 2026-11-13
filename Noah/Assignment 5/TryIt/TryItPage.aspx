@@ -73,7 +73,7 @@
                 <h2>Inventory Management System</h2>
                 <div>
                     <h3>getInventory() : Inventory</h3>
-                    <div>Get an XML representation of the current inventory system</div>
+                    <div>Get a json representation of the current inventory system stored in XML</div>
                     <asp:Button ID="GetInventoryBtn" runat="server" OnClick="GetInventoryBtn_Click" Text="Retrieve" />
                     <asp:Label ID="GetInventoryResult" class="result" runat="server">
                         Result
