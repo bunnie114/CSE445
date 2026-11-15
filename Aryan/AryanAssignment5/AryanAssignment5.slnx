@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AryanTryIt/AryanTryIt.csproj" Id="bd23dcee-720d-490e-8e8a-4fadc37f02c7" />
+  <Project Path="PasswordHashLibrary/PasswordHashLibrary.csproj" Id="11fbf2c4-695d-468b-b5d4-8356e8d7691d" />
+  <Project Path="PasswordHashTest/PasswordHashTest.csproj" Id="92344574-603d-4abf-9b5c-af1da2f0b742" />
+  <Project Path="WordFilterService/WordFilterService.csproj" Id="05865d20-110e-4562-a92a-3b242ec5fe61" />
+</Solution>
