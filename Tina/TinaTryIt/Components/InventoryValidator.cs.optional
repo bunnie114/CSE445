@@ -1,0 +1,36 @@
+// OPTIONAL - not part of the build (note the .optional extension).
+// Only use this if the team decides notes must point at a real store/product.
+//
+// Setup:
+//  1. Project > Add > Connected Service > WCF Web Service Reference
+//     URI: <live site link>/Page10/InventoryManagement.asmx
+//     Namespace: InventoryManagementService   (Visual Studio also updates Web.config)
+//  2. Rename this file to InventoryValidator.cs and add it to the csproj <Compile> items.
+//  3. Call InventoryValidator.StoreExists(...) / ProductExists(...) inside NotesService.SaveNotes
+//     before the XML is written, and throw ArgumentException on failure so the .ashx returns 400.
+//
+// Note: notes currently only have a free-text title ("Store 5001"), so to validate we would need
+// a convention, e.g. title = "<storeId>" or "<storeId>|<productName>".
+
+using System;
+using TinaTryIt.InventoryManagementService;   // generated proxy namespace
+
+namespace TinaComponents
+{
+    public static class InventoryValidator
+    {
+        public static bool StoreExists(string storeId)
+        {
+            var client = new InventoryManagementSoapClient();
+            try { bool ok = client.storeExists(storeId); client.Close(); return ok; }
+            catch { client.Abort(); throw; }
+        }
+
+        public static bool ProductExists(string storeId, string productName)
+        {
+            var client = new InventoryManagementSoapClient();
+            try { bool ok = client.productExists(storeId, productName); client.Close(); return ok; }
+            catch { client.Abort(); throw; }
+        }
+    }
+}
