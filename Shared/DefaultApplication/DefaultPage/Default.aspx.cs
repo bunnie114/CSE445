@@ -31,7 +31,7 @@ namespace DefaultPage
 
         protected void aryanBtn_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("");
+            Response.Redirect("../Page7/Default.aspx");
         }
 
         protected void tinaBtn_Click(object sender, EventArgs e)

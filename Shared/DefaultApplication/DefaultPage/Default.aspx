@@ -174,21 +174,21 @@
                 </tr>
                 <tr class="even-row row">
                     <td>Aryan</td>
-                    <td class="auto-style1">Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
+                    <td class="auto-style1">DLL</td>
+                    <td>Hashes user passwords for secure storage and verifies whether an entered password matches the saved hash. <br />Input: Password (string) <br />Output: Hashed password (string)  </td>
+                    <td>Implemented using a C# class library with PBKDF2 password hashing. Used in HashTryIt.aspx to generate and verify password hashes. </td>
                 </tr>
                 <tr class="odd-row row">
                     <td>Aryan</td>
-                    <td class="auto-style1">Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
+                    <td class="auto-style1">Session</td>
+                    <td>Stores temporary user information after login, such as username and selected pharmacy store. <br />Input: Username and store ID <br />Output: Stored session information or status message </td>
+                    <td>Implemented using ASP.NET Session state in C#. Used in SessionTryIt.aspx to save, retrieve, and clear username and store ID.</td>
                 </tr>
                 <tr class="even-row row">
                     <td>Aryan</td>
-                    <td class="auto-style1">Test</td>
-                    <td>Test</td>
-                    <td>Test</td>
+                    <td class="auto-style1">RESTful Web Service (WordFilter)</td>
+                    <td>Filters unnecessary words from website content to help users find useful product information. <br />Input: Website text (string) <br />Output: Filtered text (string) </td>
+                    <td>Reuses the WordFilter RESTful service from Assignment 3. Deployed on WebStrar Page8 and tested through WordFilterTryIt.aspx on Page7 </td>
                 </tr>
                 <tr class="even-row row">
                     <td>Christina</td>
