@@ -36,7 +36,7 @@ namespace DefaultPage
 
         protected void tinaBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../PageN/TinaTryIt.aspx");
+            Response.Redirect("../Page5/TinaTryIt.aspx");
         }
 
         protected void noahBtn_Click(object sender, EventArgs e)
