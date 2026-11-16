@@ -103,8 +103,6 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Components\NotesService.cs" />
-    <Compile Include="Components\StoreCookie.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
