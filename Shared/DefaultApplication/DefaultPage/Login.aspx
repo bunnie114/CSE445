@@ -114,6 +114,7 @@
                 <br />
 
                 <p class="register-link">Don't have an account? &nbsp;&nbsp; <a href="Register.aspx">Sign Up</a></p>
+                <p class="register-link"><a href="ChangePassword.aspx">Reset Password</a></p>
             </div>
         </div>
     </form>
