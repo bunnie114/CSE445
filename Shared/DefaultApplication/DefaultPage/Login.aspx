@@ -81,6 +81,18 @@
             box-sizing: border-box;
         }
 
+        .type-group {
+            display: flex;
+            gap: 40px;
+        }
+
+        .type-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding-left: 20px;
+        }
+
         .register-link{
             display: flex;
             justify-content: center;
@@ -93,7 +105,6 @@
     <form id="form1" runat="server">
         <div class="section">
             <h1 class="title">Login</h1>
-            <h3>This is just a placeholder page. Functionality will be implemented in assignment 6.</h3>
             <hr />
             <div class="inner-section">
                 <div class="input-section">
@@ -105,7 +116,22 @@
                     <p class="label">Password:</p>
                     <asp:TextBox ID="PasswordTxt" CssClass="input-box" runat="server" TextMode="Password"></asp:TextBox>
                 </div>
-                
+
+                <br />
+
+               <div class="input-section">
+                    <p class="label">Login as:</p>
+
+                   <div class="type-group">
+                       <label class="type-option">
+                           <input type="radio" name="UserType" value="Staff" checked="checked" /> Staff
+                       </label>
+                       <label class="type-option">
+                           <input type="radio" name="UserType" value="Member" /> Member
+                       </label>
+                   </div>
+               </div>
+             
                 <br />
 
                 <asp:Button ID="LoginBtn" CssClass="button" runat="server" Text="Login" OnClick="LoginBtn_Click" />

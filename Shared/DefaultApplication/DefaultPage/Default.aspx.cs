@@ -31,7 +31,7 @@ namespace DefaultPage
 
         protected void aryanBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../Page7/Default");
+            Response.Redirect("../Page7/Default.aspx");
         }
 
         protected void tinaBtn_Click(object sender, EventArgs e)
@@ -42,6 +42,16 @@ namespace DefaultPage
         protected void noahBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Page9/TryItPage.aspx");
+        }
+
+        protected void MemberBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Page1/MemberPage.aspx");
+        }
+
+        protected void StaffBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Page2/StaffPage.aspx");
         }
     }
 }

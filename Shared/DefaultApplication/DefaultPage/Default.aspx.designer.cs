@@ -51,6 +51,24 @@ namespace DefaultPage
         protected global::System.Web.UI.WebControls.Button StaffLoginBtn;
 
         /// <summary>
+        /// StaffBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button StaffBtn;
+
+        /// <summary>
+        /// MemberBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button MemberBtn;
+
+        /// <summary>
         /// aryanBtn control.
         /// </summary>
         /// <remarks>

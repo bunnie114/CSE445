@@ -65,6 +65,13 @@
         .staff-btn{
             background-color: #bf6b28;
             color: #ecfbfa;
+            margin-right: 15px;
+        }
+
+        .page-btn{
+            background-color: #a60029;
+            color: #ecfbfa;
+            margin-right: 15px;
         }
 
         .tryit-btn{
@@ -122,6 +129,8 @@
                 <asp:Button ID="MemberRegisterBtn" CssClass="member-btn button" runat="server" Text="Register as Member" OnClick="MemberRegisterBtn_Click" />
                 <asp:Button ID="MemberLoginBtn" CssClass="member-btn button" runat="server" Text="Member Login" OnClick="MemberLoginBtn_Click" />
                 <asp:Button ID="StaffLoginBtn" CssClass="staff-btn button" runat="server" Text="Staff Login" OnClick="StaffLoginBtn_Click" />
+                <asp:Button ID="StaffBtn" CssClass="page-btn button" runat="server" Text="Member Page" OnClick="MemberBtn_Click" />
+                <asp:Button ID="MemberBtn" CssClass="page-btn button" runat="server" Text="Staff Page" OnClick="StaffBtn_Click" />
             </div>
         </div>
 
