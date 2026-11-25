@@ -129,10 +129,8 @@
                     <p class="label">Login as:</p>
 
                     <asp:RadioButtonList ID="UserType" CssClass="type-group" runat="server" RepeatDirection="Horizontal" >
-
                         <asp:ListItem Text="Member" Value="Member" />
                         <asp:ListItem Text="Staff" Value="Staff" />
-
                     </asp:RadioButtonList>
                </div>
 
