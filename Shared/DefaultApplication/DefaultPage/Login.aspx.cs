@@ -12,7 +12,9 @@ namespace DefaultPage
             if (!IsPostBack)
             {
                 // If user navigating from staff login button, set radio button to staff, otherwise set to member
-                if (Request.QueryString["type"] == "Staff")
+                if (Request.QueryString["type"] == "Staff" || 
+                    (!string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]) && 
+                    Request.QueryString["ReturnUrl"].Contains("Page2")))
                 {
                     UserType.SelectedValue = "Staff";
                 }
