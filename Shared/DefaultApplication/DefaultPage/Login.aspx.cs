@@ -1,5 +1,6 @@
 ﻿using PasswordHashLibrary;
 using System;
+using System.Security.Principal;
 using System.Web.Security;
 using System.Web.UI;
 
@@ -9,6 +10,22 @@ namespace DefaultPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // If user is already authenticated, redirect them to their correct page
+            string user = Context.User.Identity.Name;
+            if (!string.IsNullOrEmpty(user))
+            {
+                if (user.EndsWith("|Staff"))
+                {
+                    Response.Redirect("../Page2/StaffPage.aspx");
+                    return;
+                }
+                else if (user.EndsWith("|Member"))
+                {
+                    Response.Redirect("../Page1/MemberPage.aspx");
+                    return;
+                }
+            }
+
             if (!IsPostBack)
             {
                 UserType.Items.FindByValue("Member").Enabled = true;
@@ -74,7 +91,7 @@ namespace DefaultPage
                 // Verify the password matches
                 if(PasswordHasher.VerifyPassword(password, user.Password))
                 {
-                    FormsAuthentication.RedirectFromLoginPage(username, Persistent.Checked);
+                    FormsAuthentication.RedirectFromLoginPage(username + "|" + UserType.SelectedValue, Persistent.Checked);
                 }
                 else
                 {

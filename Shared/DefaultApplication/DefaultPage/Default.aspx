@@ -116,22 +116,24 @@
         .auto-style1 {
             width: 222px;
         }
+
+        .message{
+            display: block;
+            padding: 10px 15px;
+            margin: 10px 0 20px 0;
+            background-color: #fffbea;
+            border: 1px solid #fae99e;
+            border-radius: 5px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="section">
-            <p>
-                Authenticated:
-                <%= Context.User.Identity.IsAuthenticated %>
-            </p>
-
-            <p>
-                User:
-                <%= Context.User.Identity.Name %>
-            </p>
             <h1 class="title">About This Application</h1>
             <hr />
+            <asp:Label ID="Message" class="message" runat="server" Visible="false"></asp:Label>
             <p>This is a service-oriented inventory management web application built with ASP.NET Web Forms (.NET framework). Members can login to download web-page content and filter out unecessary words from the results. Staff can login to manage the inventory of specific pharmacy stores as well as making notes for specific locations and that locations products</p>
             <h2>Navigate To:</h2>
             <div>

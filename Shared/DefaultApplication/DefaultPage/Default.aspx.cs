@@ -11,7 +11,11 @@ namespace DefaultPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Request.QueryString["unauthorized"] == "true")
+            {
+                Message.Text = "You are not authorized to view this page.";
+                Message.Visible = true;
+            }
         }
 
         protected void MemberRegisterBtn_Click(object sender, EventArgs e)

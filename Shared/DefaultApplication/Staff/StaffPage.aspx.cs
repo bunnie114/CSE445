@@ -11,7 +11,13 @@ namespace Staff
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Make sure the user is authorized to access this page
+            string identity = Context.User.Identity.Name;
 
+            if (!identity.EndsWith("|Staff"))
+            {
+                Response.Redirect("../Page0/Default.aspx?unauthorized=true");
+            }
         }
 
         protected void DefaultBtn_Click(object sender, EventArgs e)
