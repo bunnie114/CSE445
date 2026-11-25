@@ -26,7 +26,7 @@ namespace DefaultPage
 
         protected void StaffLoginBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Login.aspx");
+            Response.Redirect("~/Login.aspx?type=Staff");
         }
 
         protected void aryanBtn_Click(object sender, EventArgs e)

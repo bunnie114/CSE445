@@ -125,7 +125,6 @@
     <form id="form1" runat="server">
         <div class="section">
             <h1 class="title">Register</h1>
-            <h3>This is just a placeholder page. Member registration functionality will be implemented in assignment 6.</h3>
             <hr />
             <div class="inner-section">
                 <div class="input-section">

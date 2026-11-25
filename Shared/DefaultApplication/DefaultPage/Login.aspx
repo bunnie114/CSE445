@@ -82,15 +82,11 @@
         }
 
         .type-group {
-            display: flex;
-            gap: 40px;
+            width: auto;
         }
 
-        .type-option {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding-left: 20px;
+        .type-group td {
+            padding-right: 15px;
         }
 
         .register-link{
@@ -122,14 +118,12 @@
                <div class="input-section">
                     <p class="label">Login as:</p>
 
-                   <div class="type-group">
-                       <label class="type-option">
-                           <input type="radio" name="UserType" value="Staff" checked="checked" /> Staff
-                       </label>
-                       <label class="type-option">
-                           <input type="radio" name="UserType" value="Member" /> Member
-                       </label>
-                   </div>
+                    <asp:RadioButtonList ID="UserType" CssClass="type-group" runat="server" RepeatDirection="Horizontal" >
+
+                        <asp:ListItem Text="Member" Value="Member" />
+                        <asp:ListItem Text="Staff" Value="Staff" />
+
+                    </asp:RadioButtonList>
                </div>
              
                 <br />
@@ -139,7 +133,7 @@
 
                 <br />
 
-                <p class="register-link">Don't have an account? &nbsp;&nbsp; <a href="Register.aspx">Sign Up</a></p>
+                <p class="register-link" id="registerLink">Don't have an account? &nbsp;&nbsp; <a href="Register.aspx">Register as Member</a></p>
                 <p class="register-link"><a href="ChangePassword.aspx">Reset Password</a></p>
             </div>
         </div>

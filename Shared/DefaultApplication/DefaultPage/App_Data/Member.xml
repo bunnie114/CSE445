@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfUser xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <User>
+    <Username>member1</Username>
+    <Email>member1@gmail.com</Email>
+    <Password>2aUJXkuadxPsOl75iBInZw==:eA5rM0RswR0fM49S5nR9sRcDJ1LV3mDE7cOpWzNoYek=</Password>
+  </User>
+</ArrayOfUser>

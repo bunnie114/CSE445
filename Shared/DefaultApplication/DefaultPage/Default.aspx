@@ -152,11 +152,11 @@
             <hr />
             <div class="inner-section">
                 <h3>Member Account:</h3>
-                <p>Username: <span class="text"></span> &nbsp;&nbsp;&nbsp; Password: <span class="text"></span></p>
+                <p>Username: <span class="text">member1</span> &nbsp;&nbsp;&nbsp; Password: <span class="text">Member@123</span></p>
                 <p>Test</p>
                 <br />
                 <h3>Staff Account:</h3>
-                <p>Username: <span class="text"></span> &nbsp;&nbsp;&nbsp; Password: <span class="text"></span></p>
+                <p>Username: <span class="text">staff1</span> &nbsp;&nbsp;&nbsp; Password: <span class="text">Staff@123</span></p>
                 <p>Test</p>
                 <br />
                 <h3>Member-Registration Test:</h3>
@@ -183,17 +183,35 @@
                 </tr>
                 <tr class="even-row row">
                     <td>Aryan</td>
+                    <td class="auto-style1"></td>
+                    <td> <br />Input:  <br />Output:  </td>
+                    <td></td>
+                </tr>
+                <tr class="odd-row row">
+                    <td>Christina</td>
+                    <td class="auto-style1"></td>
+                    <td> <br />Input:  <br />Output:  </td>
+                    <td></td>
+                </tr>
+                <tr class="even-row row">
+                    <td>Noah</td>
+                    <td class="auto-style1">Login/Registration</td>
+                    <td>Allows new members to self-register and for staff and members to login. Provides security to prevent unauthenticated and unauthorized users from reaching the staff and member pages. <br />Input: User credentials <br />Output: Error message or redirection  </td>
+                    <td>Implemented using password hashing DLL and captcha control created earlier, ASP .NET Forms Authentication, and xml files. </td>
+                </tr>
+                <tr class="odd-row row">
+                    <td>Aryan</td>
                     <td class="auto-style1">DLL</td>
                     <td>Hashes user passwords for secure storage and verifies whether an entered password matches the saved hash. <br />Input: Password (string) <br />Output: Hashed password (string)  </td>
                     <td>Implemented using a C# class library with PBKDF2 password hashing. Used in HashTryIt.aspx to generate and verify password hashes. </td>
                 </tr>
-                <tr class="odd-row row">
+                <tr class="even-row row">
                     <td>Aryan</td>
                     <td class="auto-style1">Session</td>
                     <td>Stores temporary user information after login, such as username and selected pharmacy store. <br />Input: Username and store ID <br />Output: Stored session information or status message </td>
                     <td>Implemented using ASP.NET Session state in C#. Used in SessionTryIt.aspx to save, retrieve, and clear username and store ID.</td>
                 </tr>
-                <tr class="even-row row">
+                <tr class="odd-row row">
                     <td>Aryan</td>
                     <td class="auto-style1">RESTful Web Service (WordFilter)</td>
                     <td>Filters unnecessary words from website content to help users find useful product information. <br />Input: Website text (string) <br />Output: Filtered text (string) </td>

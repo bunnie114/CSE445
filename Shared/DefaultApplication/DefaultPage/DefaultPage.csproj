@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Member.xml" />
+    <Content Include="App_Data\Staff.xml" />
     <Content Include="CaptchaControl.ascx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="Default.aspx" />
@@ -111,6 +113,8 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserManager.cs" />
+    <Compile Include="UserModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -120,6 +124,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Aryan\AryanAssignment5\PasswordHashLibrary\PasswordHashLibrary.csproj">
+      <Project>{11fbf2c4-695d-468b-b5d4-8356e8d7691d}</Project>
+      <Name>PasswordHashLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
