@@ -11,22 +11,14 @@ namespace DefaultPage
         {
             if (!IsPostBack)
             {
-
-                string returnUrl = Request.QueryString["ReturnUrl"];
-
-                Response.Write("<h2>DEBUG</h2>");
-                Response.Write("ReturnUrl = " + returnUrl + "<br />");
-                Response.Write("Contains StaffPage.aspx = " +
-                    (!string.IsNullOrEmpty(returnUrl) &&
-                     returnUrl.Contains("StaffPage.aspx")));
-
                 UserType.Items.FindByValue("Member").Enabled = true;
                 UserType.Items.FindByValue("Staff").Enabled = true;
+                string returnUrl = Request.QueryString["ReturnUrl"];
 
                 // Based on where user is coming from, select one of the radio buttons for user convenience
                 if (Request.QueryString["type"] == "Staff" || 
-                    (!string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]) && 
-                    Request.QueryString["ReturnUrl"].Contains("StaffPage.aspx")))
+                    (!string.IsNullOrEmpty(returnUrl) && 
+                    returnUrl.Contains("StaffPage.aspx")))
                 {
                     UserType.SelectedValue = "Staff";
                 }
@@ -36,9 +28,9 @@ namespace DefaultPage
                 }
 
                 // If they are being redirected from one of the content pages, lock the radio button
-                if (!string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
+                if (!string.IsNullOrEmpty(returnUrl))
                 {
-                    if (Request.QueryString["ReturnUrl"].Contains("StaffPage.aspx"))
+                    if (returnUrl.Contains("StaffPage.aspx"))
                     {
                         UserType.Items.FindByValue("Member").Enabled = false;
                     }
@@ -82,10 +74,7 @@ namespace DefaultPage
                 // Verify the password matches
                 if(PasswordHasher.VerifyPassword(password, user.Password))
                 {
-                    //FormsAuthentication.RedirectFromLoginPage(username, Persistent.Checked);
-                    Response.Write("PASSWORD VERIFIED<br />");
-                    Response.Write("ReturnUrl: " + Request.QueryString["ReturnUrl"]);
-                    return;
+                    FormsAuthentication.RedirectFromLoginPage(username, Persistent.Checked);
                 }
                 else
                 {
