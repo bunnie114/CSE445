@@ -121,8 +121,8 @@
             display: block;
             padding: 10px 15px;
             margin: 10px 0 20px 0;
-            background-color: #fffbea;
-            border: 1px solid #fae99e;
+            background-color: #fdeddb;
+            border: 1px solid #e38519;
             border-radius: 5px;
             font-size: 16px;
         }

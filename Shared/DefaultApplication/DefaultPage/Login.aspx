@@ -105,6 +105,21 @@
         .check input {
             margin-right: 7px;
         }
+
+        .message{
+            display: block;
+            padding: 10px 15px;
+            margin: 10px 0 20px 0;
+            background-color: #fdeddb;
+            border: 1px solid #e38519;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .message-success{
+            background-color: #ddebfe;
+            border: 1px solid #5c6cff;
+        }
     </style>
 </head>
 <body>
@@ -112,6 +127,8 @@
         <div class="section">
             <h1 class="title">Login</h1>
             <hr />
+            <asp:Label ID="Message" class="message" runat="server" Visible="false"></asp:Label>
+            <asp:Label ID="MessageSuccess" class="message message-success" runat="server" Visible="false"></asp:Label>
             <div class="inner-section">
                 <div class="input-section">
                     <p class="label">Username:</p>

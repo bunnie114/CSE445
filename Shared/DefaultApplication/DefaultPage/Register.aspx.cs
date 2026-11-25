@@ -32,14 +32,16 @@ namespace DefaultPage
             // Make sure the fields are not empty
             if (username == "" || email == "" || password == "" || passwordConfirm == "")
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Please fill in all fields.');", true);
+                Message.Text = "Please fill in all fields.";
+                Message.Visible = true;
                 return;
             }
 
             // Make sure the passwords match
             if (password != passwordConfirm)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Passwords do not match.');", true);
+                Message.Text = "Passwords do not match.";
+                Message.Visible = true;
                 return;
             }
 
@@ -48,17 +50,20 @@ namespace DefaultPage
             // Make sure the username is not taken
             if(userManager.findUser(path, username) != null)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Username is already taken.');", true);
+                Message.Text = "Username is already taken.";
+                Message.Visible = true;
+            }
             // Make sure the email is not taken
-            }else if(userManager.emailExists(path, email))
+            else if(userManager.emailExists(path, email))
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Email is already taken.');", true);
-            
+                Message.Text = "Email is already taken.";
+                Message.Visible = true;
             }
             // Make sure the captcha is correct
             else if(!CaptchaCtrl.IsCaptchaValid())
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Captcha incorrect. Please try again.');", true);
+                Message.Text = "Captcha incorrect. Please try again.";
+                Message.Visible = true;
             }
             // Create the new user and add it to the xml file
             else
@@ -70,7 +75,7 @@ namespace DefaultPage
                 newUser.Email = email;
                 newUser.Password = hashedPassword;
                 userManager.addUser(path, newUser);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('User registered successfully.');", true);
+                Response.Redirect("Login.aspx?registered=true");
             }
 
         }

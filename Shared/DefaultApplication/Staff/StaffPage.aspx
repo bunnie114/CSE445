@@ -26,6 +26,8 @@
         <div>
             <h1>Welcome to the Staff Page</h1>
             <asp:Button ID="DefaultBtn" CssClass="page-btn button" runat="server" Text="Default Page" OnClick="DefaultBtn_Click" />
+            <br /><br />
+            <asp:Button ID="LogoutBtn" CssClass="page-btn button" runat="server" Text="Logout" OnClick="LogoutBtn_Click" />
         </div>
     </form>
 </body>

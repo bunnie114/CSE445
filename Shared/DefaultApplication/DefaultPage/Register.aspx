@@ -119,6 +119,16 @@
             align-items: center;
             font-size: 20px;
         }
+
+        .message{
+            display: block;
+            padding: 10px 15px;
+            margin: 10px 0 20px 0;
+            background-color: #fdeddb;
+            border: 1px solid #e38519;
+            border-radius: 5px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -126,6 +136,7 @@
         <div class="section">
             <h1 class="title">Register</h1>
             <hr />
+            <asp:Label ID="Message" class="message" runat="server" Visible="false"></asp:Label>
             <div class="inner-section">
                 <div class="input-section">
                     <p class="label">Username:</p>

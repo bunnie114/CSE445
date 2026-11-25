@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -23,6 +24,13 @@ namespace Staff
         protected void DefaultBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Page0/Default.aspx");
+        }
+
+        protected void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Server.Transfer("../Page0/Default.aspx");
+
         }
     }
 }

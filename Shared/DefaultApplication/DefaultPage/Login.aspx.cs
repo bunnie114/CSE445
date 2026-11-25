@@ -28,6 +28,13 @@ namespace DefaultPage
 
             if (!IsPostBack)
             {
+                // Inform user of successful registration
+                if (Request.QueryString["registered"] == "true")
+                {
+                    MessageSuccess.Text = "Registration successful. Please log in.";
+                    MessageSuccess.Visible = true;
+                }
+
                 UserType.Items.FindByValue("Member").Enabled = true;
                 UserType.Items.FindByValue("Staff").Enabled = true;
                 string returnUrl = Request.QueryString["ReturnUrl"];
@@ -76,7 +83,8 @@ namespace DefaultPage
             // Make sure the fields are not empty
             if(username == "" || password == "")
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Please enter both username and password.');", true);
+                Message.Text = "Please fill in all fields.";
+                Message.Visible = true;
                 return;
             }
 
@@ -95,12 +103,14 @@ namespace DefaultPage
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid username or password.');", true);
+                    Message.Text = "Invalid username or password.";
+                    Message.Visible = true;
                 }
             }
             else
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Invalid username or password.');", true);
+                Message.Text = "Invalid username or password.";
+                Message.Visible = true;
             }
         }
     }
