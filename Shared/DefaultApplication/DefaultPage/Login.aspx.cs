@@ -11,6 +11,15 @@ namespace DefaultPage
         {
             if (!IsPostBack)
             {
+
+                string returnUrl = Request.QueryString["ReturnUrl"];
+
+                Response.Write("<h2>DEBUG</h2>");
+                Response.Write("ReturnUrl = " + returnUrl + "<br />");
+                Response.Write("Contains StaffPage.aspx = " +
+                    (!string.IsNullOrEmpty(returnUrl) &&
+                     returnUrl.Contains("StaffPage.aspx")));
+
                 UserType.Items.FindByValue("Member").Enabled = true;
                 UserType.Items.FindByValue("Staff").Enabled = true;
 
