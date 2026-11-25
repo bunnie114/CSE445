@@ -13,5 +13,10 @@ namespace Staff
         {
 
         }
+
+        protected void DefaultBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Page0/Default.aspx");
+        }
     }
 }

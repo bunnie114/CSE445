@@ -95,6 +95,16 @@
             align-items: center;
             font-size: 20px;
         }
+
+        .check {
+            width: 90%;
+            margin: 5px 5px 10px 5px;
+            font-size: 17px;
+        }
+
+        .check input {
+            margin-right: 7px;
+        }
     </style>
 </head>
 <body>
@@ -125,7 +135,11 @@
 
                     </asp:RadioButtonList>
                </div>
-             
+
+                <div class="check">
+                    <asp:CheckBox Text="Keep me signed in" ID="Persistent" RunAt="server"/>
+                </div>
+
                 <br />
 
                 <asp:Button ID="LoginBtn" CssClass="button" runat="server" Text="Login" OnClick="LoginBtn_Click" />

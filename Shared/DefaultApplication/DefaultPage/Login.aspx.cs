@@ -1,7 +1,7 @@
 ﻿using PasswordHashLibrary;
 using System;
+using System.Web.Security;
 using System.Web.UI;
-using System.Xml.Linq;
 
 namespace DefaultPage
 {
@@ -55,7 +55,7 @@ namespace DefaultPage
                 // Verify the password matches
                 if(PasswordHasher.VerifyPassword(password, user.Password))
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('User logged in successfully.');", true);
+                    FormsAuthentication.RedirectFromLoginPage(username, Persistent.Checked);
                 }
                 else
                 {

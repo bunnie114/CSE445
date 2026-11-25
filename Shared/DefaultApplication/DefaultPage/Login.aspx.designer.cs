@@ -51,6 +51,15 @@ namespace DefaultPage
         protected global::System.Web.UI.WebControls.RadioButtonList UserType;
 
         /// <summary>
+        /// Persistent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox Persistent;
+
+        /// <summary>
         /// LoginBtn control.
         /// </summary>
         /// <remarks>
