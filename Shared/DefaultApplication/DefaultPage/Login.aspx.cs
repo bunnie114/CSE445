@@ -11,19 +11,32 @@ namespace DefaultPage
         {
             if (!IsPostBack)
             {
-                Response.Write("type = " + Request.QueryString["type"] + "<br>");
-                Response.Write("returnUrl = " + Request.QueryString["ReturnUrl"] + "<br>");
+                UserType.Items.FindByValue("Member").Enabled = true;
+                UserType.Items.FindByValue("Staff").Enabled = true;
 
-                // If user navigating from staff login button, set radio button to staff, otherwise set to member
+                // Based on where user is coming from, select one of the radio buttons for user convenience
                 if (Request.QueryString["type"] == "Staff" || 
                     (!string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]) && 
-                    Request.QueryString["ReturnUrl"].Contains("Staff.aspx")))
+                    Request.QueryString["ReturnUrl"].Contains("StaffPage.aspx")))
                 {
                     UserType.SelectedValue = "Staff";
                 }
                 else
                 {
                     UserType.SelectedValue = "Member";
+                }
+
+                // If they are being redirected from one of the content pages, lock the radio button
+                if (!string.IsNullOrEmpty(Request.QueryString["ReturnUrl"]))
+                {
+                    if (Request.QueryString["ReturnUrl"].Contains("StaffPage.aspx"))
+                    {
+                        UserType.Items.FindByValue("Member").Enabled = false;
+                    }
+                    else
+                    {
+                        UserType.Items.FindByValue("Staff").Enabled = false;
+                    }
                 }
             }
         }
@@ -60,32 +73,10 @@ namespace DefaultPage
                 // Verify the password matches
                 if(PasswordHasher.VerifyPassword(password, user.Password))
                 {
-                    // If redirected from one of the content pages, prevent them from logging in as the other user type
-                    string returnUrl = Request.QueryString["ReturnUrl"];
-                    // If trying to access Staff page, must log in as Staff
-                    if (!string.IsNullOrEmpty(returnUrl) &&
-                        returnUrl.Contains("Staff.aspx") &&
-                        UserType.SelectedValue != "Staff")
-                    {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You must log in with a staff account to access the Staff page.');", true);
-                        return;
-                    }
-
-                    // If trying to access Member page, must log in as Member
-                    if (!string.IsNullOrEmpty(returnUrl) &&
-                        returnUrl.Contains("Member.aspx") &&
-                        UserType.SelectedValue != "Member")
-                    {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('You must log in with a member account to access the Member page.');", true);
-                        return;
-                    }
-
-                    FormsAuthentication.RedirectFromLoginPage(
-                        username,
-                        Persistent.Checked
-                    );
-
-                    FormsAuthentication.RedirectFromLoginPage(username, Persistent.Checked);
+                    //FormsAuthentication.RedirectFromLoginPage(username, Persistent.Checked);
+                    Response.Write("PASSWORD VERIFIED<br />");
+                    Response.Write("ReturnUrl: " + Request.QueryString["ReturnUrl"]);
+                    return;
                 }
                 else
                 {
