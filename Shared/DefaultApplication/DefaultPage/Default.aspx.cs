@@ -25,12 +25,12 @@ namespace DefaultPage
 
         protected void MemberLoginBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Login.aspx");
+            Response.Redirect("~/Login.aspx?type=Member&ReturnUrl=../Page1/MemberPage.aspx");
         }
 
         protected void StaffLoginBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Login.aspx?type=Staff");
+            Response.Redirect("~/Login.aspx?type=Staff&ReturnUrl=../Page2/StaffPage.aspx");
         }
 
         protected void aryanBtn_Click(object sender, EventArgs e)

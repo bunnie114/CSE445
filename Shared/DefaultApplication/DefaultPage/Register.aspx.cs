@@ -75,7 +75,7 @@ namespace DefaultPage
                 newUser.Email = email;
                 newUser.Password = hashedPassword;
                 userManager.addUser(path, newUser);
-                Response.Redirect("Login.aspx?registered=true");
+                Response.Redirect("Login.aspx?registered=true&ReturnUrl=../Page1/MemberPage.aspx");
             }
 
         }

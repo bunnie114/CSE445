@@ -28,16 +28,17 @@ namespace DefaultPage
 
             if (!IsPostBack)
             {
+                UserType.Items.FindByValue("Member").Enabled = true;
+                UserType.Items.FindByValue("Staff").Enabled = true;
+                string returnUrl = Request.QueryString["ReturnUrl"];
+                bool registered = Request.QueryString["registered"] == "true";
+
                 // Inform user of successful registration
-                if (Request.QueryString["registered"] == "true")
+                if (registered)
                 {
                     MessageSuccess.Text = "Registration successful. Please log in.";
                     MessageSuccess.Visible = true;
                 }
-
-                UserType.Items.FindByValue("Member").Enabled = true;
-                UserType.Items.FindByValue("Staff").Enabled = true;
-                string returnUrl = Request.QueryString["ReturnUrl"];
 
                 // Based on where user is coming from, select one of the radio buttons for user convenience
                 if (Request.QueryString["type"] == "Staff" || 
@@ -52,7 +53,7 @@ namespace DefaultPage
                 }
 
                 // If they are being redirected from one of the content pages, lock the radio button
-                if (!string.IsNullOrEmpty(returnUrl))
+                if (!string.IsNullOrEmpty(returnUrl) && string.IsNullOrEmpty(Request.QueryString["type"]))
                 {
                     if (returnUrl.Contains("StaffPage.aspx"))
                     {
@@ -73,6 +74,9 @@ namespace DefaultPage
 
         protected void LoginBtn_Click(object sender, EventArgs e)
         {
+            Message.Visible = false;
+            MessageSuccess.Visible = false;
+
             // Get the current path to the xml file based on the option selected by user
             string path = Server.MapPath((UserType.SelectedValue == "Member") ? "~/App_Data/member.xml" : "~/App_Data/staff.xml");
 
