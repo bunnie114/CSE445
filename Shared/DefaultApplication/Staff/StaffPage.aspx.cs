@@ -30,7 +30,6 @@ namespace Staff
         {
             FormsAuthentication.SignOut();
             Server.Transfer("../Page0/Default.aspx");
-
         }
     }
 }
