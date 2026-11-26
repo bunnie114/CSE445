@@ -81,7 +81,7 @@
             box-sizing: border-box;
         }
 
-        .register-link{
+        .link{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -145,8 +145,8 @@
 
                 <br />
 
-                <p class="register-link" id="registerLink">Don't have an account? &nbsp;&nbsp; <a href="Register.aspx">Register as Member</a></p>
-                <p class="register-link"><a href="ChangePassword.aspx">Reset Password</a></p>
+                <p class="link">Don't have an account? &nbsp;&nbsp; <a id="RegisterLink" runat="server">Register as a Member</a></p>
+                <p class="link"><a id="ChangePasswordLink" runat="server">Change Password</a></p>
             </div>
         </div>
     </form>

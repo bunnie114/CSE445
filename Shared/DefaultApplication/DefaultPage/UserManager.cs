@@ -95,5 +95,37 @@ namespace DefaultPage
                 serializer.Serialize(writer, users);
             }
         }
+
+        /// <summary>
+        /// Method to update a user's password.
+        /// </summary>
+        /// <param name="filePath">The file path to update</param>
+        /// <param name="username">The username of the user to update</param>
+        /// <param name="password">The new password</param>
+        public void updatePassword(string filePath, string username, string password)
+        {
+            // Get the list of users
+            List<User> users = getUsers(filePath);
+
+            // Find the user in the list
+            foreach (var u in users)
+            {
+                // Update the user's password
+                if (u.Username.ToLower() == username.ToLower())
+                {
+                    u.Password = password;
+                    break;
+                }
+            }
+
+            // Create an XmlSerializer to write the user object into the xml
+            XmlSerializer serializer = new XmlSerializer(typeof(List<User>));
+
+            // Write the user object to the xml file
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                serializer.Serialize(writer, users);
+            }
+        }
     }
 }

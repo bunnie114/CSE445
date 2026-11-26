@@ -1,4 +1,5 @@
 ﻿using System;
+using PasswordHashLibrary;
 
 namespace DefaultPage
 {
@@ -21,6 +22,12 @@ namespace DefaultPage
                     return;
                 }
             }
+
+            if (!IsPostBack)
+            {
+                // Set the destination of the login link
+                LoginLink.HRef = "Login.aspx?ReturnUrl=" + Server.UrlEncode(Request.QueryString["ReturnUrl"]);
+            }
         }
 
         protected void DefaultBtn_Click(object sender, EventArgs e)
@@ -30,6 +37,8 @@ namespace DefaultPage
 
         protected void RegisterBtn_Click(object sender, EventArgs e)
         {
+            Message.Visible = false;
+            
             string path = Server.MapPath("~/App_Data/member.xml");
 
             // Get the user credentials from the form
@@ -78,7 +87,7 @@ namespace DefaultPage
             else
             {
                 // Hash the password before storing it
-                string hashedPassword = PasswordHashLibrary.PasswordHasher.HashPassword(password);
+                string hashedPassword = PasswordHasher.HashPassword(password);
                 User newUser = new User();
                 newUser.Username = username;
                 newUser.Email = email;

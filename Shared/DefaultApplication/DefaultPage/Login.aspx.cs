@@ -28,6 +28,7 @@ namespace DefaultPage
             {
                 string returnUrl = Request.QueryString["ReturnUrl"];
                 bool registered = Request.QueryString["registered"] == "true";
+                bool changed = Request.QueryString["change"] == "true";
 
                 // Inform the user of what user type they are logging into
                 Title.InnerText = getUserType() + " Login";
@@ -38,6 +39,16 @@ namespace DefaultPage
                     MessageSuccess.Text = "Registration successful. Please log in.";
                     MessageSuccess.Visible = true;
                 }
+                // Inform user of successful password change
+                else if (changed)
+                {
+                    MessageSuccess.Text = "Password changed successfully.";
+                    MessageSuccess.Visible = true;
+                }
+
+                // Set the destination of the register and cange password links
+                RegisterLink.HRef = "Register.aspx?ReturnUrl=" + Server.UrlEncode(returnUrl);
+                ChangePasswordLink.HRef = "ChangePassword.aspx?ReturnUrl=" + Server.UrlEncode(returnUrl);
             }
         }
 

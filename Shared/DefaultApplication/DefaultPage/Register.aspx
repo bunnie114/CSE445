@@ -113,7 +113,7 @@
             font-size: 14px;
         }
 
-        .register-link{
+        .link{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -169,7 +169,7 @@
 
                 <br />
 
-                <p class="register-link">Have an account? &nbsp;&nbsp; <a href="Login.aspx">Sign In</a></p>
+                <p class="link">Have an account? &nbsp;&nbsp; <a id="LoginLink" runat="server">Sign In</a></p>
             </div>
         </div>
     </form>
