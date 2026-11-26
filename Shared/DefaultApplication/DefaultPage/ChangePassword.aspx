@@ -102,7 +102,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="section">
-            <h1 class="title">Change Password</h1>
+            <h1 id="Title" class="title" runat="server">Change Password</h1>
             <hr />
             <asp:Label ID="Message" class="message" runat="server" Visible="false"></asp:Label>
             <div class="inner-section">

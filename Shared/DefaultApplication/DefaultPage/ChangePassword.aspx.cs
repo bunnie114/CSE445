@@ -9,6 +9,8 @@ namespace DefaultPage
         {
             if (!IsPostBack)
             {
+                Title.InnerText = getUserType() + " Password Change";
+
                 // Set the destination of the login link
                 LoginLink.HRef = "Login.aspx?ReturnUrl=" + Server.UrlEncode(Request.QueryString["ReturnUrl"]);
             }
