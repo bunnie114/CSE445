@@ -11,7 +11,21 @@ namespace DefaultPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // If user is already authenticated, redirect them to their correct page
+            string user = Context.User.Identity.Name;
+            if (!string.IsNullOrEmpty(user))
+            {
+                if (user.EndsWith("|Staff"))
+                {
+                    Response.Redirect("../Page2/StaffPage.aspx");
+                    return;
+                }
+                else if (user.EndsWith("|Member"))
+                {
+                    Response.Redirect("../Page1/MemberPage.aspx");
+                    return;
+                }
+            }
         }
 
         protected void DefaultBtn_Click(object sender, EventArgs e)
