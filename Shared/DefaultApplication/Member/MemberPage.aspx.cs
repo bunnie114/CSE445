@@ -29,7 +29,7 @@ namespace Member
         protected void LogoutBtn_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
-            Server.Transfer("../Page0/Default.aspx");
+            Response.Redirect("../Page0/Default.aspx");
 
         }
     }
