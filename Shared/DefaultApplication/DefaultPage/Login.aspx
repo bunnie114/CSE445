@@ -81,14 +81,6 @@
             box-sizing: border-box;
         }
 
-        .type-group {
-            width: auto;
-        }
-
-        .type-group td {
-            padding-right: 15px;
-        }
-
         .register-link{
             display: flex;
             justify-content: center;
@@ -125,7 +117,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="section">
-            <h1 class="title">Login</h1>
+            <h1 id="Title" class="title" runat="server">Login</h1>
             <hr />
             <asp:Label ID="Message" class="message" runat="server" Visible="false"></asp:Label>
             <asp:Label ID="MessageSuccess" class="message message-success" runat="server" Visible="false"></asp:Label>
@@ -141,15 +133,6 @@
                 </div>
 
                 <br />
-
-               <div class="input-section">
-                    <p class="label">Login as:</p>
-
-                    <asp:RadioButtonList ID="UserType" CssClass="type-group" runat="server" RepeatDirection="Horizontal" >
-                        <asp:ListItem Text="Member" Value="Member" />
-                        <asp:ListItem Text="Staff" Value="Staff" />
-                    </asp:RadioButtonList>
-               </div>
 
                 <div class="check">
                     <asp:CheckBox Text="Keep me signed in" ID="Persistent" RunAt="server"/>

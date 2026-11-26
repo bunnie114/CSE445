@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace DefaultPage
 {
@@ -25,12 +20,12 @@ namespace DefaultPage
 
         protected void MemberLoginBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Login.aspx?type=Member&ReturnUrl=../Page1/MemberPage.aspx");
+            Response.Redirect("~/Login.aspx?ReturnUrl=../Page1/MemberPage.aspx");
         }
 
         protected void StaffLoginBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Login.aspx?type=Staff&ReturnUrl=../Page2/StaffPage.aspx");
+            Response.Redirect("~/Login.aspx?ReturnUrl=../Page2/StaffPage.aspx");
         }
 
         protected void aryanBtn_Click(object sender, EventArgs e)

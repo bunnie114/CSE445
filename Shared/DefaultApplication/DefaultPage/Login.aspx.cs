@@ -1,8 +1,6 @@
-﻿using PasswordHashLibrary;
-using System;
-using System.Security.Principal;
+﻿using System;
 using System.Web.Security;
-using System.Web.UI;
+using PasswordHashLibrary;
 
 namespace DefaultPage
 {
@@ -28,41 +26,17 @@ namespace DefaultPage
 
             if (!IsPostBack)
             {
-                UserType.Items.FindByValue("Member").Enabled = true;
-                UserType.Items.FindByValue("Staff").Enabled = true;
                 string returnUrl = Request.QueryString["ReturnUrl"];
                 bool registered = Request.QueryString["registered"] == "true";
+
+                // Inform the user of what user type they are logging into
+                Title.InnerText = getUserType() + " Login";
 
                 // Inform user of successful registration
                 if (registered)
                 {
                     MessageSuccess.Text = "Registration successful. Please log in.";
                     MessageSuccess.Visible = true;
-                }
-
-                // Based on where user is coming from, select one of the radio buttons for user convenience
-                if (Request.QueryString["type"] == "Staff" || 
-                    (!string.IsNullOrEmpty(returnUrl) && 
-                    returnUrl.Contains("StaffPage.aspx")))
-                {
-                    UserType.SelectedValue = "Staff";
-                }
-                else
-                {
-                    UserType.SelectedValue = "Member";
-                }
-
-                // If they are being redirected from one of the content pages, lock the radio button
-                if (!string.IsNullOrEmpty(returnUrl) && string.IsNullOrEmpty(Request.QueryString["type"]))
-                {
-                    if (returnUrl.Contains("StaffPage.aspx"))
-                    {
-                        UserType.Items.FindByValue("Member").Enabled = false;
-                    }
-                    else
-                    {
-                        UserType.Items.FindByValue("Staff").Enabled = false;
-                    }
                 }
             }
         }
@@ -78,7 +52,7 @@ namespace DefaultPage
             MessageSuccess.Visible = false;
 
             // Get the current path to the xml file based on the option selected by user
-            string path = Server.MapPath((UserType.SelectedValue == "Member") ? "~/App_Data/member.xml" : "~/App_Data/staff.xml");
+            string path = Server.MapPath((getUserType() == "Member") ? "~/App_Data/member.xml" : "~/App_Data/staff.xml");
 
             // Get the username and password from the form
             string username = UsernameTxt.Text;
@@ -103,7 +77,7 @@ namespace DefaultPage
                 // Verify the password matches
                 if(PasswordHasher.VerifyPassword(password, user.Password))
                 {
-                    FormsAuthentication.RedirectFromLoginPage(username + "|" + UserType.SelectedValue, Persistent.Checked);
+                    FormsAuthentication.RedirectFromLoginPage(username + "|" + getUserType(), Persistent.Checked);
                 }
                 else
                 {
@@ -116,6 +90,20 @@ namespace DefaultPage
                 Message.Text = "Invalid username or password.";
                 Message.Visible = true;
             }
+        }
+
+        // Gets the type of user to determine which xml to search
+        private string getUserType()
+        {
+            string returnUrl = Request.QueryString["ReturnUrl"];
+
+            if (!string.IsNullOrEmpty(returnUrl) &&
+                returnUrl.Contains("StaffPage.aspx"))
+            {
+                return "Staff";
+            }
+
+            return "Member";
         }
     }
 }
